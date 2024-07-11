@@ -2,7 +2,8 @@
 <div class="card mb-2" id="<%= dom_id(post) %>">
   <div class="card-body">
     <div class="card-title">
-      <%= post.username %>
+      <%= image_tag @user.profile_image.variant(resize_to_fill: [50, 50]).processed, class: 'rounded-circle mr-2' if @user.profile_image.attached? %>
+      <%= @user.name %>
       <small>Posted at <%= post.created_at %></small>
     </div>
     <div class="card-text lead mb-2"><%= post.body %></div>
@@ -14,3 +15,4 @@
     </a>
   </div>
 </div>
+

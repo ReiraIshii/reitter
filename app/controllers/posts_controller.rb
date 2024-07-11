@@ -2,10 +2,12 @@ class PostsController < ApplicationController
     def index
       @posts = Post.all.order(created_at: :desc)
       @post = Post.new
+      @user = User.third
     end
   
     def create
       @post = Post.new(post_params)
+      @user = User.third
       respond_to do |format|
         if @post.save
           format.html { redirect_to posts_path }
