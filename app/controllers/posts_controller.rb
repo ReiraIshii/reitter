@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   
     def create
       @post = Post.new(post_params)
-      @user = User.third
+      @user = User.first
       respond_to do |format|
         if @post.save
           format.html { redirect_to posts_path }
