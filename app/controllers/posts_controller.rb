@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     def index
       @posts = Post.all.order(created_at: :desc)
       @post = Post.new
-      @user = User.third
+      @user = User.first
     end
   
     def create
